@@ -1,5 +1,5 @@
 import { useContext, useRef } from "react";
-import { MainContext } from "../contexts/mainContext";
+import { MainContext } from "../contexts/MainContext";
 import PreviousDetails from "../components/PreviousDetails";
 import DisplayDays from "../components/DisplayDays";
 import InputDays from "../components/InputDays";

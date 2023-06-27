@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import { MainContext } from "./mainContext";
+import { MainContext } from "../contexts/MainContext";
 
 export const CalculateContext = createContext();
 
