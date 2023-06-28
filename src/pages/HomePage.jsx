@@ -10,73 +10,110 @@ import TotalExpenses from "../components/TotalExpenses";
 import TotalRice from "../components/TotalRice";
 import { useReactToPrint } from "react-to-print";
 
-
 const HomePage = () => {
-  const { ratePrimary, rateMiddle, handleCalculate } =
-    useContext(MainContext);
+  const { rate } = useContext(MainContext);
 
-    const componentPDF = useRef();
-    const generatePDF = useReactToPrint({
-        content : ()=>componentPDF.current,
-        documentTitle : "UserData"
-    });
-  // console.log("🚀 ~ file: HomePage.jsx:5 ~ HomePage ~ data:", data)
+  const componentPDF = useRef();
+  const generatePDF = useReactToPrint({
+    content: () => componentPDF.current,
+    documentTitle: "UserData",
+  });
   return (
-    <div className="home-container flex flex-col justify-center" ref={componentPDF} style={{width: "100%"}}>
-      {/* select month section */}
-      <div className="rate-section flex gap-2">
-        <div className="rate-primary">Rate-Primary: {ratePrimary}</div>
-        <div className="rate-middle">Rate-Middle: {rateMiddle}</div>
-        <div className="select-month">
-          <select name="" id="">
-            <option value="january">January</option>
-            <option value="february">February</option>
-            <option value="march">March</option>
-            <option value="april">April</option>
-          </select>
-        </div>
-      </div>
-      
-      {/* Previous Details */}
-      <div className="upper-table bg-green-300">
-        <PreviousDetails />
-      </div>
-
-       {/* input section side */}
-       <div className="enter-days">
-          <div className="days-input-container my-2 bg-blue-400">
-            <InputDays />
+    <div>
+      <div className="home-container flex flex-col justify-center">
+        {/* select month section */}
+        <div className="intro-section  gap-2 bg-purple-100 px-2 pt-2 flex justify-center">
+          <div className="select-month">
+            <label
+              htmlFor="month"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Select Month
+            </label>
+            <select
+              id="month"
+              className="block w-full p-2 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            >
+              <option value="january">January</option>
+              <option value="february">February</option>
+              <option value="march">March</option>
+              <option value="april">April</option>
+              <option value="may">May</option>
+              <option value="june">June</option>
+              <option value="july">July</option>
+              <option value="august">August</option>
+              <option value="september">September</option>
+              <option value="october">October</option>
+              <option value="november">November</option>
+              <option value="december">December</option>
+            </select>
+          </div>
+          <div className="select-name ml-4">
+            <label
+              htmlFor="schoolName"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Enter School Name
+            </label>
+            <input
+              type="text"
+              name="schoolName"
+              id="schoolName"
+              placeholder="school name"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            />
           </div>
         </div>
-      
-      {/* day filling and display section */}
-      <div className="day-filling">
-        <div className="display-days">
-          <DisplayDays />
-        </div>
-       
-      </div>
 
-        {/* display total days */}
-        <div className="display-total-meals">
+        {/* Previous Details */}
+        <div className="upper-table flex justify-center">
+          <PreviousDetails />
+        </div>
+
+        {/* input section side */}
+        <div className="enter-days flex justify-center">
+         
+            <InputDays />
+         
+        </div>
+
+        {/* day filling and display section */}
+        <div
+          className="display-section bg-red-400 flex flex-col justify-center"
+          ref={componentPDF}
+          style={{ width: "100%" }}
+        >
+          <div className="rate-display">
+            <div className="rate-primary">Rate-Primary: {rate.primary}</div>
+            <div className="rate-middle">Rate-Middle: {rate.middle}</div>
+          </div>
+          <div className="day-filling">
+            <div className="display-days">
+              <DisplayDays />
+            </div>
+          </div>
+
+          {/* display total days */}
+          <div className="display-total-meals">
             <DisplayTotalMeals />
-
-        </div>
-        {/* display results */}
-        <div className="display-table">
-            <div className="display-table-container flex bg-blue-300">
-               <DisplayTable />
-               <DisplayRiceTable />
+          </div>
+          {/* display results */}
+          <div className="display-table">
+            <div className="display-table-container flex ">
+              <DisplayTable />
+              <DisplayRiceTable />
             </div>
-            <div className="display-total-container flex bg-red-200">
-                <TotalExpenses />
-                <TotalRice />
+            <div className="display-total-container flex">
+              <TotalExpenses />
+              <TotalRice />
             </div>
+          </div>
+          {/* Calculate Total */}
         </div>
-        {/* Calculate Total */}
-       
-        <button className="px-4 py-2 bg-green-400" onClick={generatePDF}>print </button>
-
+        <button className="px-4 py-2 bg-green-400" onClick={generatePDF}>
+          print{" "}
+        </button>
+      </div>
     </div>
   );
 };
