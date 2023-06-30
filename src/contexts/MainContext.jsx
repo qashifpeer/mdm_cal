@@ -5,7 +5,7 @@ export const MainContext = createContext();
 
 const MainContextProvider = ({ children }) => {
   const [roll, setRoll] = useState([]);
-  console.log("roll", roll)
+ 
  
   
   const [totalMeals, setMeals] = useState([{date:"", preRoll:0, pryRoll:0, middleRoll:0}]);
@@ -15,6 +15,9 @@ const MainContextProvider = ({ children }) => {
   const [currOb, setCurrOb] = useState({});
 
   const [currObRice, setCurrObRice] = useState({});
+
+  const [month, setMonth] = useState("January");
+  const [schoolName, setSchoolName] = useState("");
 
   const unique_id = uuid();
 
@@ -42,6 +45,7 @@ const rate = {
     e.preventDefault();
     setRoll([...roll, currInput]);
     setCurrInput({});
+    
 
     
 
@@ -79,6 +83,13 @@ const deleteItem = (id) =>{
   setRoll(clickedItem)
 }
 
+const selectedMonth = (e) =>{
+setMonth(e.target.value)
+}
+const schoolNameHandler =(e) =>{
+setSchoolName(e.target.value);
+}
+
 
 
   return (
@@ -94,7 +105,11 @@ const deleteItem = (id) =>{
              obRiceHandler,
              openingBalance,
              currObRice,
-             deleteItem
+             deleteItem,
+             selectedMonth,
+             month,
+             schoolNameHandler,
+             schoolName
             
             }}
     >

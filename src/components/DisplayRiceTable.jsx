@@ -7,8 +7,9 @@ const DisplayRiceTable = () => {
   return (
     <div>
       <table>
+        <tbody>
       <tr>
-        <th colSpan={2} className="px-2 border border-x-black border-y-black bg-rose-400" >Rice Details</th>
+        <th colSpan={2} className="px-2 border border-x-black border-y-black bg-sky-500" >Rice Details</th>
         </tr>
         <tr>
           <th colSpan={2} className="px-2 border border-x-black border-y-black">Pre-Primary Section</th>
@@ -81,6 +82,7 @@ const DisplayRiceTable = () => {
           <td className="font-semibold px-2 border border-x-black border-y-black">Balance</td>
           <td className="font-semibold px-2 border border-x-black border-y-black">{riceBalance.balanceMiddle || 0}</td>
         </tr>
+        </tbody>
       </table>
     </div>
   );

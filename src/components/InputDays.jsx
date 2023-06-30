@@ -1,8 +1,13 @@
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { MainContext } from "../contexts/MainContext";
 
 const InputDays = () => {
   const { handleSubmit, handleChange, currInput } = useContext(MainContext);
+  const inputFocus = useRef(null);
+  
+//   useEffect(() => {
+//     inputFocus.current.focus();
+// }, []);
   return (
     <div className="w-full flex justify-center flex-col my-2">
       <div className="text-center font-semibold bg-sky-600 ">
@@ -32,6 +37,7 @@ const InputDays = () => {
             <li>
               <input
                 type="number"
+                ref={inputFocus}
                 id="preRoll"
                 placeholder="Pre-Primary"
                 className="outline-1 border border-gray-400 px-1 w-32"
