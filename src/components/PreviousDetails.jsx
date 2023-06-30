@@ -7,11 +7,13 @@ const PreviousDetails = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div className="relative overflow-x-auto">
+        <div className="relative overflow-x-hidden">
           <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-900 uppercase bg-rose-400 dark:bg-gray-700 dark:text-gray-400">
+            <thead className="text-xs text-gray-900 uppercase bg-sky-600 dark:bg-gray-700 dark:text-gray-400">
               <tr>
-                <th scope="col" className="px-2 py-2 font-extrabold">Ingredients</th>
+                <th scope="col" className="px-2 py-2 font-extrabold">
+                  Ingredients
+                </th>
                 <th scope="col" className="px-2 py-2">
                   Pre-Primary
                 </th>
@@ -31,34 +33,31 @@ const PreviousDetails = () => {
                 >
                   Opening Balance
                 </th>
-                <td className="py-2">
+                <td className="py-2 px-2">
                   <input
                     type="number"
-                    placeholder="Opening Balance Pre Primary"
                     name="openingBalancePre"
-                    value={currOb.openingBalancePre || ""}
+                    value={currOb.openingBalancePre || 0}
                     onChange={obChangeHandler}
-                    className="outline-1 border border-gray-400 p-1 w-20 text-xs"
+                    className="outline-1 border border-gray-400 p-1 w-16 text-xs"
                   />
                 </td>
-                <td className=" py-2">
+                <td className=" py-2 px-2">
                   <input
                     type="number"
-                    placeholder="Opening Balance Primary"
                     name="openingBalancePry"
-                    value={currOb.openingBalancePry}
+                    value={currOb.openingBalancePry || 0}
                     onChange={obChangeHandler}
-                    className="outline-1 border border-gray-400 p-1 w-20 text-xs"
+                    className="outline-1 border border-gray-400 p-1 w-16 text-xs"
                   />
                 </td>
-                <td className=" py-2">
+                <td className=" py-2 px-2">
                   <input
                     type="number"
-                    placeholder="Opening Balance Middle"
                     name="openingBalanceMiddle"
-                    value={currOb.openingBalanceMiddle}
+                    value={currOb.openingBalanceMiddle || 0}
                     onChange={obChangeHandler}
-                    className="outline-1 border border-gray-400 p-1 w-20 text-xs"
+                    className="outline-1 border border-gray-400 p-1 w-16 text-xs"
                   />
                 </td>
               </tr>
@@ -69,40 +68,38 @@ const PreviousDetails = () => {
                 >
                   Income Received
                 </th>
-                <td className=" py-2">
+                <td className=" py-2 px-2">
                   <input
                     type="number"
-                    placeholder="Income Received"
                     name="incomePre"
-                    value={currOb.incomePre}
+                    value={currOb.incomePre || 0}
                     onChange={obChangeHandler}
-                    className="outline-1 border border-gray-400 p-1 w-20 h-full text-xs"
+                    className="outline-1 border border-gray-400 p-1 w-16 h-full text-xs"
                   />
                 </td>
-                <td className="py-2">
+                <td className="py-2 px-2">
                   <input
                     type="number"
-                    placeholder="Income Received"
                     name="incomePry"
-                    value={currOb.incomePry}
+                    value={currOb.incomePry || 0}
                     onChange={obChangeHandler}
-                    className="outline-1 border border-gray-400 p-1 w-20 text-xs"
+                    className="outline-1 border border-gray-400 p-1 w-16 text-xs"
                   />
                 </td>
-                <td className=" py-2">
+                <td className=" py-2 px-2">
                   <input
                     type="number"
-                    placeholder="Income Received"
                     name="incomeMiddle"
-                    value={currOb.incomeMiddle}
+                    value={currOb.incomeMiddle || 0}
                     onChange={obChangeHandler}
-                    className="outline-1 border border-gray-400 p-1 w-20 text-xs"
+                    className="outline-1 border border-gray-400 p-1 w-16 text-xs"
                   />
                 </td>
               </tr>
-              <tr className=" border-b uppercase bg-rose-400 dark:bg-gray-800 dark:border-gray-700">
+              <tr className=" border-b uppercase bg-sky-600 dark:bg-gray-800 dark:border-gray-700">
                 <th
-                  scope="col" colSpan={4} 
+                  scope="col"
+                  colSpan={4}
                   className="px-2 py-2 font-bold text-gray-900 whitespace-nowrap dark:text-white"
                 >
                   Rice Details
@@ -115,34 +112,31 @@ const PreviousDetails = () => {
                 >
                   Previous Balance
                 </th>
-                <td className=" py-2">
+                <td className=" py-2 px-2">
                   <input
                     type="number"
-                    placeholder="Previous Balance"
                     name="prevRicePre"
-                    value={currObRice.prevRicePre}
+                    value={currObRice.prevRicePre || 0}
                     onChange={obRiceHandler}
-                    className="outline-1 border border-gray-400 p-1 w-20 text-xs"
+                    className="outline-1 border border-gray-400 p-1 w-16 text-xs"
                   />
                 </td>
-                <td className=" py-2">
+                <td className=" py-2 px-2">
                   <input
                     type="number"
-                    placeholder="Previous Balance"
                     name="prevRicePry"
-                    value={currObRice.prevRicePry}
+                    value={currObRice.prevRicePry || 0}
                     onChange={obRiceHandler}
-                    className="outline-1 border border-gray-400 p-1 w-20 text-xs"
+                    className="outline-1 border border-gray-400 p-1 w-16 text-xs"
                   />
                 </td>
-                <td className="py-2">
+                <td className="py-2 px-2">
                   <input
                     type="number"
-                    placeholder="Previous Balance"
                     name="prevRiceMiddle"
-                    value={currObRice.prevRiceMiddle}
+                    value={currObRice.prevRiceMiddle || 0}
                     onChange={obRiceHandler}
-                    className="outline-1 border border-gray-400 p-1 w-20 text-xs"
+                    className="outline-1 border border-gray-400 p-1 w-16 text-xs"
                   />
                 </td>
               </tr>
@@ -153,34 +147,31 @@ const PreviousDetails = () => {
                 >
                   Rice Lifted
                 </th>
-                <td className=" py-2">
+                <td className=" py-2 px-2">
                   <input
                     type="number"
-                    placeholder="Rice Lifted"
                     name="riceLiftedPre"
-                    value={currObRice.riceLiftedPre}
+                    value={currObRice.riceLiftedPre || 0}
                     onChange={obRiceHandler}
-                    className="outline-1 border border-gray-400 p-1 w-20 text-xs"
+                    className="outline-1 border border-gray-400 p-1 w-16 text-xs"
                   />
                 </td>
-                <td className=" py-2">
+                <td className=" py-2 px-2">
                   <input
                     type="number"
-                    placeholder="Rice Lifted"
                     name="riceLiftedPry"
-                    value={currObRice.riceLiftedPry}
+                    value={currObRice.riceLiftedPry || 0}
                     onChange={obRiceHandler}
-                    className="outline-1 border border-gray-400 p-1 w-20 text-xs"
+                    className="outline-1 border border-gray-400 p-1 w-16 text-xs"
                   />
                 </td>
-                <td className=" py-2">
+                <td className=" py-2 px-2">
                   <input
                     type="number"
-                    placeholder="Rice Lifted"
                     name="riceLiftedMiddle"
-                    value={currObRice.riceLiftedMiddle}
+                    value={currObRice.riceLiftedMiddle || 0}
                     onChange={obRiceHandler}
-                    className="outline-1 border border-gray-400 p-1 w-20 text-xs"
+                    className="outline-1 border border-gray-400 p-1 w-16 text-xs"
                   />
                 </td>
               </tr>

@@ -9,6 +9,7 @@ import DisplayRiceTable from "../components/DisplayRiceTable";
 import TotalExpenses from "../components/TotalExpenses";
 import TotalRice from "../components/TotalRice";
 import { useReactToPrint } from "react-to-print";
+import SchoolHeading from "../components/SchoolHeading";
 
 const HomePage = () => {
   const { rate } = useContext(MainContext);
@@ -19,14 +20,14 @@ const HomePage = () => {
     documentTitle: "UserData",
   });
   return (
-    <div>
+    <div className="bg-slate-900 md:w-1/2 mx-auto">
       <div className="home-container flex flex-col justify-center">
         {/* select month section */}
-        <div className="intro-section  gap-2 bg-purple-100 px-2 pt-2 flex justify-center">
+        <div className="intro-section  gap-2  px-2 pt-2 flex justify-center">
           <div className="select-month">
             <label
               htmlFor="month"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-slate-50 dark:text-white"
             >
               Select Month
             </label>
@@ -51,7 +52,7 @@ const HomePage = () => {
           <div className="select-name ml-4">
             <label
               htmlFor="schoolName"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-slate-50 dark:text-white"
             >
               Enter School Name
             </label>
@@ -66,7 +67,7 @@ const HomePage = () => {
         </div>
 
         {/* Previous Details */}
-        <div className="upper-table flex justify-center">
+        <div className="upper-table  px-2 ">
           <PreviousDetails />
         </div>
 
@@ -79,38 +80,39 @@ const HomePage = () => {
 
         {/* day filling and display section */}
         <div
-          className="display-section bg-red-400 flex flex-col justify-center"
+          className="display-section  flex flex-col justify-center"
           ref={componentPDF}
           style={{ width: "100%" }}
         >
-          <div className="rate-display">
+          {/* <div className="rate-display">
             <div className="rate-primary">Rate-Primary: {rate.primary}</div>
             <div className="rate-middle">Rate-Middle: {rate.middle}</div>
-          </div>
-          <div className="day-filling">
-            <div className="display-days">
+          </div> */}
+          {/* <div className="flex justify-center">
+            <SchoolHeading />
+          </div> */}
+          
+            {/* <div className="display-days">
               <DisplayDays />
             </div>
-          </div>
+          */}
 
-          {/* display total days */}
-          <div className="display-total-meals">
-            <DisplayTotalMeals />
-          </div>
+        
           {/* display results */}
-          <div className="display-table">
-            <div className="display-table-container flex ">
+          {/* <div className="display-table  px-2 flex justify-center flex-col">
+            <div className="display-table-container flex justify-center">
               <DisplayTable />
               <DisplayRiceTable />
             </div>
-            <div className="display-total-container flex">
+           
+          </div> */}
+          {/* Calculate Total */}
+          {/* <div className="display-total-container flex px-6 mt-2">
               <TotalExpenses />
               <TotalRice />
-            </div>
-          </div>
-          {/* Calculate Total */}
+            </div> */}
         </div>
-        <button className="px-4 py-2 bg-green-400" onClick={generatePDF}>
+        <button className="px-4 py-2 bg-rose-400" onClick={generatePDF}>
           print{" "}
         </button>
       </div>

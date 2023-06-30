@@ -8,27 +8,27 @@ const TotalRice = () => {
     <div>
         <table>
             <tr>
-                <th>Total Rice Consumption</th>
+                <th colSpan={2} className="px-2 border border-x-black border-y-black">Total Rice Consumption</th>
             </tr>
             <tr>
-                <td>Opening Balance</td>
-                <td>{totalRiceDetails.totalOb}</td>
+                <td className="px-2 border border-x-black border-y-black">Opening Balance</td>
+                <td className="px-2 border border-x-black border-y-black">{totalRiceDetails.totalOb || 0}</td>
             </tr>
             <tr>
-                <td>Total Rice Lifted</td>
-                <td>{totalRiceDetails.totalReceived}</td>
+                <td className="px-2 border border-x-black border-y-black">Total Rice Lifted</td>
+                <td className="px-2 border border-x-black border-y-black">{totalRiceDetails.totalReceived || 0}</td>
             </tr>
             <tr>
-                <td>Total Rice Avl</td>
-                <td>{totalRiceDetails.totalAvlRice}</td>
+                <td className="px-2 border border-x-black border-y-black">Total Rice Avl</td>
+                <td className="px-2 border border-x-black border-y-black">{totalRiceDetails.totalAvlRice || 0}</td>
             </tr>
             <tr>
-                <td>Total Rice Consumed</td>
-                <td>{totalRiceDetails.totalExpenditure}</td>
+                <td className="px-2 border border-x-black border-y-black">Total Rice Consumed</td>
+                <td className="px-2 border border-x-black border-y-black">{totalRiceDetails.totalExpenditure || 0}</td>
             </tr>
             <tr>
-                <td>Closing Balance</td>
-                <td>{totalRiceDetails.totalCb}</td>
+                <td className="px-2 border border-x-black border-y-black">Closing Balance</td>
+                <td className="px-2 border border-x-black border-y-black">{totalRiceDetails.totalCb || 0}</td>
             </tr>
         </table>
     </div>
