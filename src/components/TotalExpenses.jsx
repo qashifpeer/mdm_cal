@@ -9,8 +9,9 @@ const TotalExpenses = () => {
   return (
     <div>
         <table>
+            <tbody>
             <tr className="px-2 border border-x-black border-y-black">
-                <th colSpan={2} className="px-2 border border-x-black border-y-black">Total Expenses</th>
+                <th colSpan={2} className="px-2 border border-x-black border-y-black bg-sky-500">Total Expenses</th>
             </tr>
             <tr>
                 <td className="px-2 border border-x-black border-y-black">Opening Balance</td>
@@ -32,6 +33,7 @@ const TotalExpenses = () => {
                 <td className="px-2 border border-x-black border-y-black">Closing Balance</td>
                 <td className="px-2 border border-x-black border-y-black">{totalExpenses.totalCb || 0}</td>
             </tr>
+            </tbody>
         </table>
         
     </div>

@@ -7,8 +7,9 @@ const TotalRice = () => {
   return (
     <div>
         <table>
+            <tbody>
             <tr>
-                <th colSpan={2} className="px-2 border border-x-black border-y-black">Total Rice Consumption</th>
+                <th colSpan={2} className="px-2 border border-x-black border-y-black bg-sky-500">Total Rice Consumption</th>
             </tr>
             <tr>
                 <td className="px-2 border border-x-black border-y-black">Opening Balance</td>
@@ -19,7 +20,7 @@ const TotalRice = () => {
                 <td className="px-2 border border-x-black border-y-black">{totalRiceDetails.totalReceived || 0}</td>
             </tr>
             <tr>
-                <td className="px-2 border border-x-black border-y-black">Total Rice Avl</td>
+                <td className="px-2 border border-x-black border-y-black ">Total Rice Avl</td>
                 <td className="px-2 border border-x-black border-y-black">{totalRiceDetails.totalAvlRice || 0}</td>
             </tr>
             <tr>
@@ -30,6 +31,7 @@ const TotalRice = () => {
                 <td className="px-2 border border-x-black border-y-black">Closing Balance</td>
                 <td className="px-2 border border-x-black border-y-black">{totalRiceDetails.totalCb || 0}</td>
             </tr>
+            </tbody>
         </table>
     </div>
   )
