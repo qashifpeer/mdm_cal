@@ -96,7 +96,7 @@ const PreviousDetails = () => {
                   />
                 </td>
               </tr>
-              <tr className=" border-b uppercase bg-sky-600 dark:bg-gray-800 dark:border-gray-700">
+              <tr className=" border-b uppercase bg-sky-600 dark:bg-gray-700 dark:border-gray-700">
                 <th
                   scope="col"
                   colSpan={4}

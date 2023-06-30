@@ -72,7 +72,7 @@ const HomePage = () => {
         </div>
 
         {/* input section side */}
-        <div className="enter-days flex justify-center">
+        <div className="enter-days flex justify-center px-2">
          
             <InputDays />
          
@@ -112,9 +112,9 @@ const HomePage = () => {
               <TotalRice />
             </div> */}
         </div>
-        <button className="px-4 py-2 bg-rose-400" onClick={generatePDF}>
+        {/* <button className="px-4 py-2 bg-rose-400" onClick={generatePDF}>
           print{" "}
-        </button>
+        </button> */}
       </div>
     </div>
   );

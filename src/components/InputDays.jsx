@@ -12,11 +12,11 @@ const InputDays = () => {
       <form onSubmit={handleSubmit} className="pt-2">
         <div className="px-2">
           <div className="input-lists flex justify-center">
-          <ul className="">
-            <li>Select Date</li>
-            <li>Pre-Primary</li>
-            <li>Primary</li>
-            <li>Middle</li>
+          <ul className="text-white">
+            <li className="font-thin leading-7">Select Date</li>
+            <li className="font-thin leading-7">Pre-Primary</li>
+            <li className="font-thin leading-7">Primary</li>
+            <li className="font-thin leading-7">Middle</li>
           </ul>
           <ul className="ml-2">
             <li>
@@ -64,10 +64,10 @@ const InputDays = () => {
             </li>
           </ul>
           </div>
-          <div className=" ml-2 py-2 w-full flex justify-center">
+          <div className=" ml-2 py-2 w-full flex justify-center ">
             <button
               type="submit"
-              className="  my-auto px-4 py-2 text-center border rounded-lg  border-pink-500 origin-center transform transition duration-300 delay-150 hover:delay-100 hover:bg-pink-300 "
+              className="  my-auto px-4 py-2 text-center text-white border rounded-lg  border-pink-500 origin-center transform transition duration-300 delay-150 hover:delay-100 hover:bg-pink-300 hover:text-gray-900"
             >
               Submit
             </button>
