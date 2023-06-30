@@ -1,43 +1,39 @@
-import { useContext, useRef } from "react"
+import { useContext } from "react"
 import { CalculateContext } from "../contexts/CalculateContext"
-import { useReactToPrint } from "react-to-print";
 
 
 const TotalExpenses = () => {
     const {totalExpenses} = useContext(CalculateContext);
-    const componentPDF = useRef();
-    const generatePDF = useReactToPrint({
-        content : ()=>componentPDF.current,
-        documentTitle : "UserData"
-    });
+   
+    
   return (
-    <div ref={componentPDF} style={{width: "100%"}}>
+    <div>
         <table>
-            <tr>
-                <th>Total Expenses</th>
+            <tr className="px-2 border border-x-black border-y-black">
+                <th colSpan={2} className="px-2 border border-x-black border-y-black">Total Expenses</th>
             </tr>
             <tr>
-                <td>Opening Balance</td>
-                <td>{totalExpenses.totalOb || 0}</td>
+                <td className="px-2 border border-x-black border-y-black">Opening Balance</td>
+                <td className="px-2 border border-x-black border-y-black">{totalExpenses.totalOb || 0}</td>
             </tr>
             <tr>
-                <td>Total Received Amount</td>
-                <td>{totalExpenses.totalReceived || 0}</td>
+                <td className="px-2 border border-x-black border-y-black">Total Received Amount</td>
+                <td className="px-2 border border-x-black border-y-black">{totalExpenses.totalReceived || 0}</td>
             </tr>
             <tr>
-                <td>Total Available Amt</td>
-                <td>{totalExpenses.totalAvlAmount || 0}</td>
+                <td className="px-2 border border-x-black border-y-black">Total Available Amt</td>
+                <td className="px-2 border border-x-black border-y-black">{totalExpenses.totalAvlAmount || 0}</td>
             </tr>
             <tr>
-                <td>Total Expenditure</td>
-                <td>{totalExpenses.totalExpenditure || 0}</td>
+                <td className="px-2 border border-x-black border-y-black">Total Expenditure</td>
+                <td className="px-2 border border-x-black border-y-black">{totalExpenses.totalExpenditure || 0}</td>
             </tr>
             <tr>
-                <td>Closing Balance</td>
-                <td>{totalExpenses.totalCb || 0}</td>
+                <td className="px-2 border border-x-black border-y-black">Closing Balance</td>
+                <td className="px-2 border border-x-black border-y-black">{totalExpenses.totalCb || 0}</td>
             </tr>
         </table>
-        <button onClick={generatePDF}>print </button>
+        
     </div>
   )
 }

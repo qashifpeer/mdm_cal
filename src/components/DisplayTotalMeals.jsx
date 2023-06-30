@@ -7,13 +7,13 @@ const DisplayTotalMeals = () => {
   return (
     <div>
       <table className="table-auto">
-        <thead>
+        {/* <thead>
           <tr className="text-xs border-black border-b-2">
             <th className="px-2  ">Pre-Primary</th>
             <th className="px-2  ">Primary</th>
             <th className="px-2  ">Middle</th>
           </tr>
-        </thead>
+        </thead> */}
         <tbody>
          
                   <tr className="text-xs text-center border-b-2">

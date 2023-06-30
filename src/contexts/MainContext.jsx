@@ -1,9 +1,12 @@
 import { createContext, useContext, useState } from "react";
+import { v4 as uuid } from 'uuid';
 
 export const MainContext = createContext();
 
 const MainContextProvider = ({ children }) => {
   const [roll, setRoll] = useState([]);
+  console.log("roll", roll)
+ 
   
   const [totalMeals, setMeals] = useState([{date:"", preRoll:0, pryRoll:0, middleRoll:0}]);
   const [currInput, setCurrInput] = useState({});
@@ -12,6 +15,8 @@ const MainContextProvider = ({ children }) => {
   const [currOb, setCurrOb] = useState({});
 
   const [currObRice, setCurrObRice] = useState({});
+
+  const unique_id = uuid();
 
 //   Rate List
 const rate = {
@@ -26,7 +31,9 @@ const rate = {
 //   fetching daily Roll
   const handleChange = (e) => {
     const { name, value } = e.target || "";
-    setCurrInput({ ...currInput, [name]: value });
+   
+    setCurrInput({ ...currInput, id:unique_id, [name]: value });
+   
   };
 
   // previous balances 
@@ -66,11 +73,12 @@ const obRiceHandler = (e) =>{
 
 
 }
-const handleCalculate = () =>{
-    // setOpeningBalance([...openingBalance,currOb])
-    // setCurrOb({});
+const deleteItem = (id) =>{
 
+  const clickedItem = roll.filter((currElem)=> currElem.id !== id)
+  setRoll(clickedItem)
 }
+
 
 
   return (
@@ -81,12 +89,12 @@ const handleCalculate = () =>{
            handleChange,
             roll,
              totalDays,
-             handleCalculate,
-             obChangeHandler,
+              obChangeHandler,
              currOb,
              obRiceHandler,
              openingBalance,
-             currObRice
+             currObRice,
+             deleteItem
             
             }}
     >
