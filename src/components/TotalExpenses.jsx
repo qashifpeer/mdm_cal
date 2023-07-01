@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { CalculateContext } from "../contexts/CalculateContext"
+import FormatPrice from "./FormatPrice";
 
 
 const TotalExpenses = () => {
@@ -15,23 +16,23 @@ const TotalExpenses = () => {
             </tr>
             <tr>
                 <td className="px-2 border border-x-black border-y-black">Opening Balance</td>
-                <td className="px-2 border border-x-black border-y-black">{totalExpenses.totalOb || 0}</td>
+                <td className="px-2 border border-x-black border-y-black">{<FormatPrice price={totalExpenses.totalOb || 0} />}</td>
             </tr>
             <tr>
                 <td className="px-2 border border-x-black border-y-black">Total Received Amount</td>
-                <td className="px-2 border border-x-black border-y-black">{totalExpenses.totalReceived || 0}</td>
+                <td className="px-2 border border-x-black border-y-black">{<FormatPrice price={totalExpenses.totalReceived || 0}/>} </td>
             </tr>
             <tr>
                 <td className="px-2 border border-x-black border-y-black">Total Available Amt</td>
-                <td className="px-2 border border-x-black border-y-black">{totalExpenses.totalAvlAmount || 0}</td>
+                <td className="px-2 border border-x-black border-y-black">{<FormatPrice price={totalExpenses.totalAvlAmount || 0} />}</td>
             </tr>
             <tr>
                 <td className="px-2 border border-x-black border-y-black">Total Expenditure</td>
-                <td className="px-2 border border-x-black border-y-black">{totalExpenses.totalExpenditure || 0}</td>
+                <td className="px-2 border border-x-black border-y-black">{<FormatPrice price={totalExpenses.totalExpenditure || 0} />}</td>
             </tr>
             <tr>
-                <td className="px-2 border border-x-black border-y-black">Closing Balance</td>
-                <td className="px-2 border border-x-black border-y-black">{totalExpenses.totalCb || 0}</td>
+                <td className="px-2 border border-x-black border-y-black text-bold">Closing Balance</td>
+                <td className="px-2 border border-x-black border-y-black text-bold">{<FormatPrice price={Math.round(totalExpenses.totalCb)  || 0} />}</td>
             </tr>
             </tbody>
         </table>

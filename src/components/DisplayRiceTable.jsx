@@ -16,23 +16,23 @@ const DisplayRiceTable = () => {
         </tr>
         <tr>
           <td className="px-2 border border-x-black border-y-black">Opening Balance</td>
-          <td className="px-2 border border-x-black border-y-black">{currObRice.prevRicePre}</td>
+          <td className="px-2 border border-x-black border-y-black">{currObRice.prevRicePre || 0} kg</td>
         </tr>
         <tr>
           <td className="px-2 border border-x-black border-y-black">Rice Lifted</td>
-          <td className="px-2 border border-x-black border-y-black">{currObRice.riceLiftedPre}</td>
+          <td className="px-2 border border-x-black border-y-black">{currObRice.riceLiftedPre || 0} kg</td>
         </tr>
         <tr>
           <td className="px-2 border border-x-black border-y-black">Rice Available</td>
-          <td className="px-2 border border-x-black border-y-black">{availableRiceBalance.avlRiceBalancePre || 0}</td>
+          <td className="px-2 border border-x-black border-y-black">{Math.round(availableRiceBalance.avlRiceBalancePre * 1000)/1000 || 0} kg</td>
         </tr>
         <tr>
           <td className="px-2 border border-x-black border-y-black">Expenditure </td>
-          <td className="px-2 border border-x-black border-y-black">{expenditureRice.prePryExpenditure || 0}</td>
+          <td className="px-2 border border-x-black border-y-black">{expenditureRice.prePryExpenditure || 0} kg</td>
         </tr>
         <tr>
           <td className="font-semibold px-2 border border-x-black border-y-black">Balance</td>
-          <td className="font-semibold px-2 border border-x-black border-y-black">{riceBalance.balancePre || 0}</td>
+          <td className="font-semibold px-2 border border-x-black border-y-black">{riceBalance.balancePre || 0} kg</td>
         </tr>
         {/* Primary section */}
         <tr>
@@ -40,23 +40,23 @@ const DisplayRiceTable = () => {
         </tr>
         <tr>
           <td className="px-2 border border-x-black border-y-black">Opening Balance</td>
-          <td className="px-2 border border-x-black border-y-black">{currObRice.prevRicePry}</td>
+          <td className="px-2 border border-x-black border-y-black">{currObRice.prevRicePry || 0} kg</td>
         </tr>
         <tr>
           <td className="px-2 border border-x-black border-y-black">Rice Lifted</td>
-          <td className="px-2 border border-x-black border-y-black">{currObRice.riceLiftedPry}</td>
+          <td className="px-2 border border-x-black border-y-black">{currObRice.riceLiftedPry || 0} kg</td>
         </tr>
         <tr>
           <td className="px-2 border border-x-black border-y-black">Rice Available</td>
-          <td className="px-2 border border-x-black border-y-black">{availableRiceBalance.avlRiceBalancePry || 0}</td>
+          <td className="px-2 border border-x-black border-y-black">{Math.round(availableRiceBalance.avlRiceBalancePry *1000)/1000 || 0} kg</td>
         </tr>
         <tr>
           <td className="px-2 border border-x-black border-y-black">Expenditure </td>
-          <td className="px-2 border border-x-black border-y-black">{expenditureRice.pryExpenditure || 0}</td>
+          <td className="px-2 border border-x-black border-y-black">{expenditureRice.pryExpenditure || 0} kg</td>
         </tr>
         <tr>
           <td className="font-semibold px-2 border border-x-black border-y-black">Balance</td>
-          <td className="font-semibold px-2 border border-x-black border-y-black">{riceBalance.balancePry || 0}</td>
+          <td className="font-semibold px-2 border border-x-black border-y-black">{riceBalance.balancePry || 0} kg</td>
         </tr>
         {/* Middle Section */}
         <tr>
@@ -64,23 +64,23 @@ const DisplayRiceTable = () => {
         </tr>
         <tr>
           <td className="px-2 border border-x-black border-y-black">Opening Balance</td>
-          <td className="px-2 border border-x-black border-y-black">{currObRice.prevRiceMiddle}</td>
+          <td className="px-2 border border-x-black border-y-black">{currObRice.prevRiceMiddle || 0} kg</td>
         </tr>
         <tr>
           <td className="px-2 border border-x-black border-y-black">Rice Lifted</td>
-          <td className="px-2 border border-x-black border-y-black">{currObRice.riceLiftedMiddle}</td>
+          <td className="px-2 border border-x-black border-y-black">{currObRice.riceLiftedMiddle || 0} kg</td>
         </tr>
         <tr>
           <td className="px-2 border border-x-black border-y-black">Rice Available</td>
-          <td className="px-2 border border-x-black border-y-black">{availableRiceBalance.avlRiceBalanceMiddle || 0} </td>
+          <td className="px-2 border border-x-black border-y-black">{Math.round(availableRiceBalance.avlRiceBalanceMiddle *1000)/1000 || 0} kg </td>
         </tr>
         <tr>
           <td className="px-2 border border-x-black border-y-black">Expenditure </td>
-          <td className="px-2 border border-x-black border-y-black">{expenditureRice.middleExpenditure || 0}</td>
+          <td className="px-2 border border-x-black border-y-black">{expenditureRice.middleExpenditure || 0} kg</td>
         </tr>
         <tr>
           <td className="font-semibold px-2 border border-x-black border-y-black">Balance</td>
-          <td className="font-semibold px-2 border border-x-black border-y-black">{riceBalance.balanceMiddle || 0}</td>
+          <td className="font-semibold px-2 border border-x-black border-y-black">{riceBalance.balanceMiddle || 0} kg</td>
         </tr>
         </tbody>
       </table>
