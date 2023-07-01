@@ -13,23 +13,23 @@ const TotalRice = () => {
             </tr>
             <tr>
                 <td className="px-2 border border-x-black border-y-black">Opening Balance</td>
-                <td className="px-2 border border-x-black border-y-black">{totalRiceDetails.totalOb || 0}</td>
+                <td className="px-2 border border-x-black border-y-black">{totalRiceDetails.totalOb || 0} kg</td>
             </tr>
             <tr>
                 <td className="px-2 border border-x-black border-y-black">Total Rice Lifted</td>
-                <td className="px-2 border border-x-black border-y-black">{totalRiceDetails.totalReceived || 0}</td>
+                <td className="px-2 border border-x-black border-y-black">{totalRiceDetails.totalReceived || 0} kg</td>
             </tr>
             <tr>
                 <td className="px-2 border border-x-black border-y-black ">Total Rice Avl</td>
-                <td className="px-2 border border-x-black border-y-black">{totalRiceDetails.totalAvlRice || 0}</td>
+                <td className="px-2 border border-x-black border-y-black">{totalRiceDetails.totalAvlRice || 0} kg</td>
             </tr>
             <tr>
                 <td className="px-2 border border-x-black border-y-black">Total Rice Consumed</td>
-                <td className="px-2 border border-x-black border-y-black">{totalRiceDetails.totalExpenditure || 0}</td>
+                <td className="px-2 border border-x-black border-y-black">{Math.round(totalRiceDetails.totalExpenditure *1000)/1000 || 0} kg</td>
             </tr>
             <tr>
-                <td className="px-2 border border-x-black border-y-black">Closing Balance</td>
-                <td className="px-2 border border-x-black border-y-black">{totalRiceDetails.totalCb || 0}</td>
+                <td className="px-2 border border-x-black border-y-black text-bold">Closing Balance</td>
+                <td className="px-2 border border-x-black border-y-black text-bold">{Math.round(totalRiceDetails.totalCb *1000)/1000  || 0} kg</td>
             </tr>
             </tbody>
         </table>

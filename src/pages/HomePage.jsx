@@ -12,7 +12,7 @@ import { useReactToPrint } from "react-to-print";
 import SchoolHeading from "../components/SchoolHeading";
 
 const HomePage = () => {
-  const { rate,selectedMonth,schoolNameHandler } = useContext(MainContext);
+  const { rate, selectedMonth, schoolNameHandler } = useContext(MainContext);
 
   const componentPDF = useRef();
   const generatePDF = useReactToPrint({
@@ -27,12 +27,12 @@ const HomePage = () => {
           <div className="select-month">
             <label
               htmlFor="month"
-              className="block mb-2 text-sm font-medium text-slate-50 dark:text-white"
+              className="block mb-2 text-sm font-medium text-slate-50 dark:text-white "
             >
               Select Month
             </label>
             <select
-            onChange={selectedMonth}
+              onChange={selectedMonth}
               id="month"
               className="block w-full p-2 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
@@ -65,7 +65,7 @@ const HomePage = () => {
               placeholder="school name"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
-          </div>
+          </div>  <p className="text-white">Developed By : <span className="underline text-sky-900 bg-white font-bold border rounded-s-sm rounded-e-xl">Qashif Peer - 9906613451</span></p>
         </div>
 
         {/* Previous Details */}
@@ -80,35 +80,47 @@ const HomePage = () => {
 
         {/* day filling and display section */}
         <div
-          className="display-section  flex flex-col justify-center"
+          className="display-section  flex flex-col justify-center bg-white"
           ref={componentPDF}
           style={{ width: "100%" }}
         >
-          
-          <div className="flex justify-center bg-white">
+          <div className="w- full bg-white">
             <SchoolHeading />
           </div>
 
           {/* display results */}
-          <div className="display-table mt-4 p-2 flex justify-center flex-col bg-white rounded-md md:flex-row md:justify-between md:mx-6  ">
-            <div className="display-days">
+          <div className="justify-items-end mx-2 md:grid md:grid-cols-5 md:gap-3 md:ml-6 mt-16 ">
+            <div className="col-span-2 ">
               <DisplayDays />
             </div>
-            <div className="display-table-container flex justify-center">
+            <div className="col-span-3 flex gap-2 ">
               <DisplayTable />
               <DisplayRiceTable />
             </div>
           </div>
+
+         
           {/* Calculate Total */}
-          <div className="display-total-container mx-auto flex md:justify-between px-6 mt-2 bg-white">
+          <div className="grid grid-cols-2 mt-4 gap-1 justify-items-end mx-2">
+            <div className="col-span-1">
               <TotalExpenses />
-              <TotalRice />
             </div>
+            <div className="col-span-1">
+              {" "}
+              <TotalRice />{" "}
+            </div>
+          </div>
+          
+          <div className="footer-text flex bg-white justify-around w-3/4 mx-auto mt-12">
+            <p>Tr. Incharge</p>
+            <p>Headmaster</p>
+          </div>
         </div>
         <div className="mx-auto border rounded-md bg-white my-3 ">
-        <button className="px-4 py-2 " onClick={generatePDF}>
-          print{" "}
-        </button></div>
+          <button className="px-4 py-2 " onClick={generatePDF}>
+            print{" "}
+          </button>
+        </div>
       </div>
     </div>
   );
