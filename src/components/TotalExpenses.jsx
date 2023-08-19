@@ -9,10 +9,10 @@ const TotalExpenses = () => {
     
   return (
     <div>
-        <table>
+        <table className="text-sm">
             <tbody>
             <tr className="px-2 border border-x-black border-y-black">
-                <th colSpan={2} className="px-2 border border-x-black border-y-black bg-sky-500">Total Expenses</th>
+                <th colSpan={2} className="px-2 border border-x-black border-y-black bg-slate-200">Total Expenses</th>
             </tr>
             <tr>
                 <td className="px-2 border border-x-black border-y-black">Opening Balance</td>

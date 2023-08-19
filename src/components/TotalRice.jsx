@@ -6,10 +6,10 @@ const TotalRice = () => {
     const {totalRiceDetails} = useContext(RiceContext)
   return (
     <div>
-        <table>
+        <table className="text-sm">
             <tbody>
             <tr>
-                <th colSpan={2} className="px-2 border border-x-black border-y-black bg-sky-500">Total Rice Consumption</th>
+                <th colSpan={2} className="px-2 border border-x-black border-y-black bg-slate-200">Total Rice Consumption</th>
             </tr>
             <tr>
                 <td className="px-2 border border-x-black border-y-black">Opening Balance</td>

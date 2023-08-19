@@ -1,4 +1,4 @@
-import HomePage from "./pages/HomePage"
+import Home from "./pages/Home"
 
 
 
@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       
-     <HomePage />
+     <Home />
       
      
     </>
