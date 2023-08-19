@@ -41,7 +41,7 @@ const CalculateContextProvider = ({ children }) => {
       expenditure.prePryExpenditure +
       expenditure.pryExpenditure +
       expenditure.middleExpenditure,
-    totalCb: balance.balancePre + balance.balancePry + balance.balanceMiddle,
+    totalCb: balance.balancePre + balance.balancePry + balance.balanceMiddle
   };
   return (
     <CalculateContext.Provider

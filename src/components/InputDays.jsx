@@ -44,6 +44,7 @@ const InputDays = () => {
                 name="preRoll"
                 value={currInput.preRoll || ""}
                 onChange={handleChange}
+                required
               />
             </li>
             <li>
@@ -55,6 +56,7 @@ const InputDays = () => {
                 name="pryRoll"
                 value={currInput.pryRoll || ""}
                 onChange={handleChange}
+                required
               />
             </li>
             <li>
@@ -66,6 +68,7 @@ const InputDays = () => {
                 name="middleRoll"
                 value={currInput.middleRoll || ""}
                 onChange={handleChange}
+                required
               />
             </li>
           </ul>
@@ -73,7 +76,7 @@ const InputDays = () => {
           <div className=" ml-2 py-2 w-full flex justify-center ">
             <button
               type="submit"
-              className="  my-auto px-4 py-2 text-center text-white border rounded-lg  border-pink-500 origin-center transform transition duration-300 delay-150 hover:delay-100 hover:bg-pink-300 hover:text-gray-900"
+              className="  my-auto px-4 py-2 text-center text-black border-2 rounded-lg  border-pink-500 origin-center transform transition duration-300 delay-150 hover:delay-100 hover:bg-sky-700 hover:text-white"
             >
               Submit
             </button>

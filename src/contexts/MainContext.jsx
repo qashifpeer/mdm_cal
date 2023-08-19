@@ -11,6 +11,7 @@ const MainContextProvider = ({ children }) => {
 
   const [openingBalance, setOpeningBalance] = useState([]);
   const [currOb, setCurrOb] = useState({});
+  console.log("🚀 ~ file: MainContext.jsx:14 ~ MainContextProvider ~ currOb:", currOb)
 
   const [currObRice, setCurrObRice] = useState({});
 
@@ -26,19 +27,20 @@ const MainContextProvider = ({ children }) => {
     ricePry: 100,
     riceMiddle: 150,
   };
+  
+  
 
-  //   fetching daily Roll
+  //   fetching current Roll
   const handleChange = (e) => {
     const { name, value } = e.target || "";
-
     setCurrInput({ ...currInput, id: unique_id, [name]: value });
   };
 
-  // previous balances
-
+  // etching daily Roll
   const handleSubmit = (e) => {
     e.preventDefault();
     setRoll([...roll, currInput]);
+    localStorage.setItem('roll', roll);
     setCurrInput({});
   };
 
@@ -61,11 +63,15 @@ const MainContextProvider = ({ children }) => {
     const { name, value } = e.target || "";
     setCurrOb({ ...currOb, [name]: value });
   };
+  
   // Previous Balance Rice
   const obRiceHandler = (e) => {
     const { name, value } = e.target;
     setCurrObRice({ ...currObRice, [name]: value });
   };
+  
+
+  // delete an entry
   const deleteItem = (id) => {
     const clickedItem = roll.filter((currElem) => currElem.id !== id);
     setRoll(clickedItem);

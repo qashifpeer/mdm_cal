@@ -11,19 +11,19 @@ const DisplayDays = () => {
         <table className="table-auto">
           <thead>
             <tr className="text-xs border-black">
-            <th className="px-2  border border-x-black border-y-black bg-sky-500">
+            <th className="px-1  border border-x-black border-y-black bg-slate-200">
                 S No
               </th>
-              <th className="px-2  border border-x-black border-y-black bg-sky-500">
+              <th className="px-1  border border-x-black border-y-black bg-slate-200">
                 Date
               </th>
-              <th className="px-2 border border-x-black border-y-black bg-sky-500">
+              <th className="px-1 border border-x-black border-y-black bg-slate-200">
                 Pre-Primary
               </th>
-              <th className="px-2 border border-x-black border-y-black bg-sky-500">
+              <th className="px-1 border border-x-black border-y-black bg-slate-200">
                 Primary
               </th>
-              <th className="px-2 border border-x-black border-y-black bg-sky-500">
+              <th className="px-1 border border-x-black border-y-black bg-slate-200">
                 Middle
               </th>
             </tr>
@@ -37,29 +37,29 @@ const DisplayDays = () => {
                   className="text-xs text-center border-black"
                   key={index}
                 >
-                  <td className="px-2  border border-x-black border-y-black">
+                  <td className="px-1  border border-x-black border-y-black">
                     {index=index+1}
                   </td>
-                  <td className="px-2  border border-x-black border-y-black">
+                  <td className="px-1  border border-x-black border-y-black">
                     {currItem.date}
                   </td>
-                  <td className="px-2  border border-x-black border-y-black">
+                  <td className="px-1  border border-x-black border-y-black">
                     {currItem.preRoll}
                   </td>
-                  <td className="px-2  border border-x-black border-y-black">
+                  <td className="px-1  border border-x-black border-y-black">
                     {currItem.pryRoll}
                   </td>
-                  <td className="px-2  border border-x-black border-y-black">
+                  <td className="px-1  border border-x-black border-y-black">
                     {currItem.middleRoll}
                   </td>
                 </tr>
               );
             })}
             <tr className="text-center font-semibold">
-              <td colSpan={2} className="px-2  border border-x-black border-y-black font-bold bg-sky-500">Total</td>
-              <td className="px-2  border border-x-black border-y-black bg-sky-500">{totalDays.preRoll || 0}</td>
-              <td className="px-2  border border-x-black border-y-black bg-sky-500">{totalDays.pryRoll || 0}</td>
-              <td className="px-2  border border-x-black border-y-black bg-sky-500">{totalDays.middleRoll || 0}</td>
+              <td colSpan={2} className="px-1  border border-x-black border-y-black font-bold bg-slate-200">Total</td>
+              <td className="px-1  border border-x-black border-y-black bg-slate-200">{totalDays.preRoll || 0}</td>
+              <td className="px-1  border border-x-black border-y-black bg-slate-200">{totalDays.pryRoll || 0}</td>
+              <td className="px-1  border border-x-black border-y-black bg-slate-200">{totalDays.middleRoll || 0}</td>
             </tr>
           </tbody>
         </table>
