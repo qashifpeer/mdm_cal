@@ -1,4 +1,5 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
+import { MainContext } from "../contexts/MainContext";
 
 import DisplayDays from "./DisplayDays";
 import DisplayRiceTable from "./DisplayRiceTable";
@@ -11,6 +12,7 @@ import SchoolHeading from "./SchoolHeading";
 import SchoolFooter from "./SchoolFooter";
 
 const DisplayData = () => {
+  const { clearStorage } = useContext(MainContext);
   const componentPDF = useRef();
   const generatePDF = useReactToPrint({
     content: () => componentPDF.current,
@@ -35,10 +37,11 @@ const DisplayData = () => {
       </div>
     
       <div
-        className="flex justify-center align-middle border rounded-md bg-white my-3"
-        onClick={generatePDF}
+        className="flex justify-center align-middle border rounded-md bg-white my-3 gap-4"
+        
       >
-        <button className="px-4 py-2  w-20 bg-sky-700 text-white">print </button>
+        <button onClick={generatePDF} className="my-auto px-4 py-2 text-center text-black border-2 rounded-lg  border-pink-500 origin-center transform transition duration-300 delay-150 hover:delay-100 hover:bg-sky-700 hover:text-white">print </button>
+        <button onClick={clearStorage} className="my-auto px-4 py-2 text-center text-black border-2 rounded-lg  border-pink-500 origin-center transform transition duration-300 delay-150 hover:delay-100 hover:bg-sky-700 hover:text-white">Clear Data </button>
       </div>
     </div>
   );
