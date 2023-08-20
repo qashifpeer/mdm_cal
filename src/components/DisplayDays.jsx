@@ -1,8 +1,11 @@
-import { useContext } from "react";
+import { useContext, useEffect,useState } from "react";
 import { MainContext } from "../contexts/MainContext";
 
 const DisplayDays = () => {
+
   const { roll, deleteItem, totalDays } = useContext(MainContext);
+
+ 
 
   const sortedRoll = roll.sort((a, b) => new Date(a.date) - new Date(b.date));
   return (

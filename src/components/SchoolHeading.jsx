@@ -21,14 +21,14 @@ const SchoolHeading = () => {
         </p>
         <div className=" rate-details flex ">
           <ul>
-            <li className="text-gray-400">Primary-Rate</li>
-            <li className="text-gray-400">Middle-Rate</li>
+            <li className="text-gray-400 text-sm">Primary-Rate</li>
+            <li className="text-gray-400 text-sm">Middle-Rate</li>
           </ul>
           <ul className="mx-4">
-            <li className="font-semibold">
+            <li className="text-sm font-semibold">
               {<FormatPrice price={rate.primary} />}
             </li>
-            <li className="font-semibold">
+            <li className="text-sm font-semibold">
               {<FormatPrice price={rate.middle} />}
             </li>
           </ul>

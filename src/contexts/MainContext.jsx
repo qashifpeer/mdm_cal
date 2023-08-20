@@ -1,50 +1,92 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 
 export const MainContext = createContext();
 
-const MainContextProvider = ({ children }) => {
-  const [roll, setRoll] = useState([]);
+// Retrieving Days from Local Storage
+const getTotalDays = () => {
+  let totalDays = localStorage.getItem("roll");
+  if (totalDays) {
+    // return JSON.parse(JSON.stringify(localStorage.getItem('roll')));
+    return JSON.parse(localStorage.getItem("roll"));
+  } else {
+    return [];
+  }
+};
 
-  // const [totalMeals, setMeals] = useState([{date:"", preRoll:0, pryRoll:0, middleRoll:0}]);
+
+// Retrieving Opening Balance from Local Storage
+const getBalance = () => {
+  let totalBalance = localStorage.getItem("currOb");
+  if (totalBalance) {
+    return JSON.parse(localStorage.getItem("currOb"));
+  } else {
+    return [];
+  }
+};
+
+
+// Retrieving Opening Balance Rice from Local Storage
+const getBalanceRice = () => {
+  let totalBalance = localStorage.getItem("currObRice");
+  if (totalBalance) {
+    return JSON.parse(localStorage.getItem("currObRice"));
+  } else {
+    return [];
+  }
+};
+
+const MainContextProvider = ({ children }) => {
+  const [roll, setRoll] = useState(getTotalDays());
+
+  // const [initialRoll, setInitialRoll] = useState(getTotalDays());
+
   const [currInput, setCurrInput] = useState({});
 
-  const [openingBalance, setOpeningBalance] = useState([]);
-  const [currOb, setCurrOb] = useState({});
-  console.log("🚀 ~ file: MainContext.jsx:14 ~ MainContextProvider ~ currOb:", currOb)
+  const [openingBalance, setOpeningBalance] = useState();
+  const [currOb, setCurrOb] = useState(getBalance());
 
-  const [currObRice, setCurrObRice] = useState({});
+  const [currObRice, setCurrObRice] = useState(getBalanceRice());
 
   const [month, setMonth] = useState("January");
   const [schoolName, setSchoolName] = useState("");
 
   const unique_id = uuid();
 
-  //   Rate List
-  const rate = {
-    primary: 5.45,
-    middle: 8.17,
-    ricePry: 100,
-    riceMiddle: 150,
-  };
+  // useEffect(() => {
+  //   const rollData  = JSON.parse(JSON.stringify(localStorage.getItem('roll')));
+  //   // const rollData  = JSON.parse(localStorage.getItem('roll'));
+  //   if (Array.isArray(rollData)) {
+
+  //     setRoll(rollData);
+  //   }
+  //   else {
+  //     console.log("useefect called in else")
+  //     // If rollData is not an array (or doesn't exist), set 'roll' as an empty array
+  //     setRoll([]);
+  //   }
+  // }, []);
+
+  // Saving Daily Roll to Local Storage
+  useEffect(() => {
+    localStorage.setItem("roll", JSON.stringify(roll));
+  }, [roll]);
+
   
-  
+  //  Saving Opening Balance to Local Storage
+  useEffect(() => {
+    localStorage.setItem("currOb", JSON.stringify(currOb));
+  }, [currOb]);
 
-  //   fetching current Roll
-  const handleChange = (e) => {
-    const { name, value } = e.target || "";
-    setCurrInput({ ...currInput, id: unique_id, [name]: value });
-  };
 
-  // etching daily Roll
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setRoll([...roll, currInput]);
-    localStorage.setItem('roll', roll);
-    setCurrInput({});
-  };
+  //  Saving Opening Balance Rice to Local Storage
+  useEffect(() => {
+    localStorage.setItem("currObRice", JSON.stringify(currObRice));
+  }, [currObRice]);
 
-  //   calculating Total Meals
+ 
+
+ //   calculating Total Meals
   const totalDays = roll.reduce(
     (acc, curr) => {
       // return acc + Number(curr.preRoll)
@@ -58,18 +100,42 @@ const MainContextProvider = ({ children }) => {
     { preRoll: 0, pryRoll: 0, middleRoll: 0 }
   );
 
+
+   
+
+  //   Rate List
+  const rate = {
+    primary: 5.45,
+    middle: 8.17,
+    ricePry: 100,
+    riceMiddle: 150,
+  };
+
+  //   fetching current Roll
+  const handleChange = (e) => {
+    const { name, value } = e.target || "";
+    setCurrInput({ ...currInput, id: unique_id, [name]: value });
+  };
+
+  // etching daily Roll
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setRoll([...roll, currInput]);
+
+    setCurrInput({});
+  };
+
   // fetching previous balances
   const obChangeHandler = (e) => {
     const { name, value } = e.target || "";
     setCurrOb({ ...currOb, [name]: value });
   };
-  
+
   // Previous Balance Rice
   const obRiceHandler = (e) => {
     const { name, value } = e.target;
     setCurrObRice({ ...currObRice, [name]: value });
   };
-  
 
   // delete an entry
   const deleteItem = (id) => {
@@ -84,6 +150,14 @@ const MainContextProvider = ({ children }) => {
     setSchoolName(e.target.value);
   };
 
+  
+
+  const clearStorage = ()=>{
+    localStorage.removeItem("roll","currOb","currObRice");
+    setRoll([]);
+    setCurrOb({})
+    setCurrObRice({})
+  }
   return (
     <MainContext.Provider
       value={{
@@ -103,6 +177,7 @@ const MainContextProvider = ({ children }) => {
         month,
         schoolNameHandler,
         schoolName,
+        clearStorage,
       }}
     >
       {children}
