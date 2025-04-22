@@ -84,8 +84,7 @@ const MainContextProvider = ({ children }) => {
   const rate = {
     primary: 6.19,
     middle: 9.29,
-    //   primary: 6,
-    //  middle: 9,
+    
     ricePry: 100,
     riceMiddle: 150,
   };
