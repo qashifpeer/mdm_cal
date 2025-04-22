@@ -14,7 +14,6 @@ const getTotalDays = () => {
   }
 };
 
-
 // Retrieving Opening Balance from Local Storage
 const getBalance = () => {
   let totalBalance = localStorage.getItem("currOb");
@@ -24,7 +23,6 @@ const getBalance = () => {
     return [];
   }
 };
-
 
 // Retrieving Opening Balance Rice from Local Storage
 const getBalanceRice = () => {
@@ -53,40 +51,22 @@ const MainContextProvider = ({ children }) => {
 
   const unique_id = uuid();
 
-  // useEffect(() => {
-  //   const rollData  = JSON.parse(JSON.stringify(localStorage.getItem('roll')));
-  //   // const rollData  = JSON.parse(localStorage.getItem('roll'));
-  //   if (Array.isArray(rollData)) {
-
-  //     setRoll(rollData);
-  //   }
-  //   else {
-  //     console.log("useefect called in else")
-  //     // If rollData is not an array (or doesn't exist), set 'roll' as an empty array
-  //     setRoll([]);
-  //   }
-  // }, []);
-
   // Saving Daily Roll to Local Storage
   useEffect(() => {
     localStorage.setItem("roll", JSON.stringify(roll));
   }, [roll]);
 
-  
   //  Saving Opening Balance to Local Storage
   useEffect(() => {
     localStorage.setItem("currOb", JSON.stringify(currOb));
   }, [currOb]);
-
 
   //  Saving Opening Balance Rice to Local Storage
   useEffect(() => {
     localStorage.setItem("currObRice", JSON.stringify(currObRice));
   }, [currObRice]);
 
- 
-
- //   calculating Total Meals
+  //   calculating Total Meals
   const totalDays = roll.reduce(
     (acc, curr) => {
       // return acc + Number(curr.preRoll)
@@ -100,15 +80,12 @@ const MainContextProvider = ({ children }) => {
     { preRoll: 0, pryRoll: 0, middleRoll: 0 }
   );
 
-
-   
-
   //   Rate List
   const rate = {
-    //primary: 6.19,
-   // middle: 9.29,
-    primary: 6,
-   middle: 9,
+    primary: 6.19,
+    middle: 9.29,
+    //   primary: 6,
+    //  middle: 9,
     ricePry: 100,
     riceMiddle: 150,
   };
@@ -152,14 +129,12 @@ const MainContextProvider = ({ children }) => {
     setSchoolName(e.target.value);
   };
 
-  
-
-  const clearStorage = ()=>{
-    localStorage.removeItem("roll","currOb","currObRice");
+  const clearStorage = () => {
+    localStorage.removeItem("roll", "currOb", "currObRice");
     setRoll([]);
-    setCurrOb({})
-    setCurrObRice({})
-  }
+    setCurrOb({});
+    setCurrObRice({});
+  };
   return (
     <MainContext.Provider
       value={{
